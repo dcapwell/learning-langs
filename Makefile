@@ -11,4 +11,11 @@ docker-build:
 	@docker build -t $(IMAGE_NAME) .
 
 docker-run:
-	@docker run -t -i -v $(PWD):$(PWD) -v $(HOME)/.vimrc:/root/.vimrc -v $(HOME)/.vim:/root/.vim -w $(PWD) $(IMAGE_NAME) bash
+	@docker run \
+		-t -i \
+		-v $(PWD):$(PWD) \
+		-v $(HOME)/.vimrc:/root/.vimrc \
+		-v $(HOME)/.vim:/root/.vim \
+		-e "PS1=[\u \w]\n\[\033k\033\ # " \
+		-w $(PWD) \
+		$(IMAGE_NAME) bash
