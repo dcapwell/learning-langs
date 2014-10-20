@@ -2,9 +2,15 @@
 
 set -e
 
-CURRENT=$(ls -1 | egrep '^ex' | sort | tr -d 'ex' | tail -n 1)
+CURRENT=$(ls -1 | egrep '^ex' | tr -d 'ex' | sort -n | tail -n 1)
 NEXT=$(( $CURRENT + 1 ))
 
 mkdir "ex$NEXT"
 cp "ex$CURRENT/Makefile" "ex$NEXT/"
-touch "ex$NEXT/ex$NEXT.c"
+
+for t in "ex$NEXT" extra_credit break_it
+do
+  touch "ex$NEXT/$t.c"
+done
+
+echo "ex$NEXT"
