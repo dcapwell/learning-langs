@@ -4,6 +4,7 @@ clean:
 	for dir in $(shell ls -1 | egrep '^ex'); do \
 		(cd "$$dir"; make clean) \
 	done
+	(cd utils; make clean)
 
 docker: docker-build docker-run
 
