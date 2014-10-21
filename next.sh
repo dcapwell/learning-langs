@@ -8,7 +8,7 @@ NEXT=$(( $CURRENT + 1 ))
 mkdir "ex$NEXT"
 cp "ex$CURRENT/Makefile" "ex$NEXT/"
 
-for t in "ex$NEXT" extra_credit break_it
+for t in "ex$NEXT" credit break_it
 do
   touch "ex$NEXT/$t.c"
 done
